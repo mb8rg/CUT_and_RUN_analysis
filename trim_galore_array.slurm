@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A rivanna_fallahi_lab		# account
+#SBATCH -A bme4350		# account
 #SBATCH -p standard	# partition/queue
 #SBATCH --nodes=1		# number of compute nodes
 #SBATCH --ntasks=1		# number of program instances
@@ -8,8 +8,8 @@
 #SBATCH -c 16
 # Create directory and set variables
 
-DATA_PATH=/scratch/mb8rg/cut_and_run_project/Original_FastQ_files
-OUTDIR=./trimmed_reads/fastqc_output_array
+DATA_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/original_fastq_files
+OUTDIR=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/trimmed_reads/stringency_1/fastqc_output_array
 mkdir -p $OUTDIR
 
 # Get list of all data files
@@ -26,6 +26,9 @@ start=$SECONDS
 module purge
 module load trimgalore/0.6.4
 
-trim_galore --cores 4 --nextseq 20 --adapter AGATCGGAAGAGCACACGTCTGAACTCCAGTCA --adapter2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --stringency 2 --length 20 --paired --fastqc_args "--outdir $OUTDIR" --output_dir ./trimmed_reads/ $FILE_FOR $FILE_REV 
+trim_galore --cores 4 --nextseq 20 --adapter AGATCGGAAGAGCACACGTCTGAACTCCAGTCA \
+--adapter2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --length 20 --paired \
+--fastqc_args "--outdir $OUTDIR" --output_dir ./trimmed_reads/ $FILE_FOR $FILE_REV 
+
 end=$SECONDS
 echo "duration:$((end-start)) seconds."

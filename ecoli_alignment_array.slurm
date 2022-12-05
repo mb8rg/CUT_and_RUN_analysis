@@ -9,7 +9,7 @@
 
 # Create directory and set variables
 DATA_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/trimmed_reads/stringency_1
-GENOME_INDEX_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/hg38_gencode_v41_genomeindex
+GENOME_INDEX_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/Ecoli_genomeindex
 
 # Get list of all data files
 FILES_FOR=($(ls -1 $DATA_PATH/*_R1_001_val_1.fq.gz))
@@ -30,8 +30,8 @@ module load bowtie2
 module load samtools
 
 bowtie2 \
--p $SLURM_CPUS_PER_TASK --no-mixed --no-discordant \
--x $GENOME_INDEX_PATH/hg38_gencode_v41_genome_index \
+-p $SLURM_CPUS_PER_TASK --no-mixed --no-discordant --no-overlap --no-dovetail \
+-x $GENOME_INDEX_PATH/GCF_000005845.2_ASM584v2_genomic_index \
 -1 $FILE_FOR -2 $FILE_REV | samtools sort -m 32G -o $SAMPLE_ID.bam
 
 end=$SECONDS
