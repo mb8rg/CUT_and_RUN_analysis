@@ -30,8 +30,7 @@ module load gcc qualimap
 module load samtools
 
 # Sort BAM file by location
-samtools view -h -m 32G -@ 4 $FILE > $DATA_PATH/qualimap_files_test/$SAMPLE_ID.filtered.bam
-samtools sort -m 32G -@ 4 $DATA_PATH/qualimap_files_test/$SAMPLE_ID.filtered.bam -o $DATA_PATH/qualimap_files_test/$SAMPLE_ID.sorted.bam
+samtools sort -m 32G -@ 4 $FILE -o $DATA_PATH/qualimap_files_test/$SAMPLE_ID.sorted.bam
 
 # Run qualimap on each file in the array
 qualimap bamqc -nt 4 -bam $DATA_PATH/qualimap_files_test/$SAMPLE_ID.sorted.bam --paint-chromosome-limits \
