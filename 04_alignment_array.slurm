@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=8
 
 # Create directory and set variables
-DATA_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/trimmed_reads/stringency_1
+DATA_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/trimmed_reads/
 GENOME_INDEX_PATH=/project/rivanna_fallahi_lab/cut_and_run_projects/20220902_LOXIMVI_WM115/hg38_gencode_v41_genomeindex
 
 # Get list of all data files
