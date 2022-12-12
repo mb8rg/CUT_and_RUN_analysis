@@ -21,21 +21,21 @@ The following tools are required in this pipeline:
 * DESeq2
 * ChiPSeeker
 
-### 1. Preliminary analysis of the quality of reads: FastQC
+1. Preliminary analysis of the quality of reads: FastQC
 
-### 2. Trimming reads: Trim Galore
+2. Trimming reads: Trim Galore
 
-### 3. Quality control of antibody specificity: K-Met panel analysis
+3. Quality control of antibody specificity: K-Met panel analysis
 
-### 4. Read alignment to human and _E. coli_ genomes: Bowtie2
+4. Read alignment to human and _E. coli_ genomes: Bowtie2
 
-### 5. Quality control of aligned reads: Qualimap
+5. Quality control of aligned reads: Qualimap
 
-### 6. Read normalization using spike-in _E. coli_ 
+6. Read normalization using spike-in _E. coli_ 
 
-### 7. Filtering alignements and file format conversion: SAM Tools, PICARD, BEDtools
+7. Filtering alignements and file format conversion: SAM Tools, PICARD, BEDtools
 
-### 8. Peak calling: SEACR
+8. Peak calling: SEACR
 
 
 
