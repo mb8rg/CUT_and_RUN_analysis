@@ -27,7 +27,7 @@ The following tools are required in this pipeline:
 
 3. Quality control of antibody specificity: K-Met panel analysis
 
-4. Read alignment to human and _E. coli_ genomes: Bowtie2
+4. Read alignment to human genome: Bowtie2
 
 5. Quality control of aligned reads: Qualimap
 
